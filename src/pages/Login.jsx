@@ -1,12 +1,19 @@
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const Login = () => {
+
+const Login = ({ setUser }) => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState(''); 
 
+   const navigate = useNavigate();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if(!name || !email) return;
+        setUser({ name: name, email: email});
+        navigate('/dashboard');
     };
 
     return (
@@ -25,12 +32,13 @@ const Login = () => {
                 <label htmlFor='password' className='form-label'>password</label>
                 <input type="password" className='form-input' id='password' value={password} onChange={(e) => setPassword(e.target.value)} />     
             </div>
+            <button>Login</button>
          </form>
        </section> 
     )
 }
 
-
+export default Login;
 
 
 

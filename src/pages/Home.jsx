@@ -7,9 +7,8 @@ import StyledNavbar from '../components/StyledNavbar';
 const Home = () => {
   return (
    <>
-    <StyledNavbar /> 
     <div>
-     <Outlet />
+     <h1>Welcome to the Home Page</h1>
     </div>
 
     </>
